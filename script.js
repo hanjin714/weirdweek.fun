@@ -115,8 +115,57 @@ window.addEventListener('scroll', () => {
   lastScrollY = scrollY;
 });
 
-// --- 6. "Back to top" scroll listener for ticker ---
-const ticker = document.querySelector('.ticker-bar');
-if (ticker && window.scrollY < 10) {
-  ticker.style.opacity = '1';
+// --- 6. Product Modal ---
+const modal = document.getElementById('productModal');
+const modalImg = document.getElementById('modalImg');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const modalTags = document.getElementById('modalTags');
+const modalPrice = document.getElementById('modalPrice');
+const modalClose = document.querySelector('.modal-close');
+
+function openModal(card) {
+  const img = card.querySelector('.card-image img, .featured-image img');
+  const title = card.querySelector('.product-title, .featured-title');
+  const desc = card.querySelector('.product-desc, .featured-desc');
+  const price = card.querySelector('.product-price');
+  const tags = card.querySelectorAll('.tag');
+
+  if (img) {
+    modalImg.src = img.src;
+    modalImg.alt = img.alt;
+  }
+  if (title) modalTitle.textContent = title.textContent;
+  if (desc) modalDesc.textContent = desc.textContent; // full text, unclipped
+  if (price) modalPrice.innerHTML = price.innerHTML;
+
+  // Copy tags
+  modalTags.innerHTML = '';
+  tags.forEach(t => {
+    const clone = t.cloneNode(true);
+    modalTags.appendChild(clone);
+  });
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
+
+function closeModal() {
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Attach click to all product cards (grid + featured)
+const allCards = document.querySelectorAll('.product-card, .featured-card');
+allCards.forEach(card => {
+  card.addEventListener('click', () => openModal(card));
+  card.style.cursor = 'pointer';
+});
+
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) closeModal();
+});
+modalClose.addEventListener('click', closeModal);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+});
