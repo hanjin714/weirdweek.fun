@@ -1,0 +1,439 @@
+/* ============================================
+   WeirdWeek.fun — 本站专属样式
+   覆盖 base.css 变量 + 本站独家设计 + 动效
+   ============================================ */
+
+/* --- 覆写 CSS 变量 --- */
+:root {
+  --color-bg: #fdfbf7;
+  --color-surface: #ffffff;
+  --color-text: #1c1917;
+  --color-text-secondary: #57534e;
+  --color-text-tertiary: #a8a29e;
+  --color-border: #e7e5e4;
+  --color-accent: #7c3aed;
+  --color-accent-hover: #6d28d9;
+  --max-width: 1100px;
+
+  --color-useless: #ef4444;
+  --color-low: #f59e0b;
+  --color-mid: #10b981;
+  --color-wtf: #ec4899;
+
+  --ticker-height: 32px;
+}
+
+/* ============================================
+   1. 顶部跑马灯
+   ============================================ */
+.ticker-bar {
+  height: var(--ticker-height);
+  background: linear-gradient(90deg, #1c1917 0%, #2d1f4e 50%, #1c1917 100%);
+  color: #e7e5e4;
+  font-size: 0.7rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 1.5rem;
+  white-space: nowrap;
+  animation: ticker-scroll 40s linear infinite;
+}
+
+.ticker-track span {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================
+   2. Header
+   ============================================ */
+.site-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-3) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: padding 0.25s ease, box-shadow 0.25s ease;
+}
+
+.header-scrolled {
+  padding: var(--space-2) 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-padding);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 800;
+  font-size: var(--text-xl);
+  letter-spacing: -0.02em;
+  transition: font-size 0.25s ease;
+}
+.header-scrolled .logo { font-size: var(--text-lg); }
+
+.logo-icon {
+  font-size: 1.5rem;
+  animation: spin-slow 6s linear infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.nav-links a {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.nav-links a:hover { color: var(--color-accent); background: #f3e8ff; }
+
+/* ============================================
+   3. Hero
+   ============================================ */
+.hero {
+  padding: var(--space-16) 0 var(--space-12);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fdfbf7 0%, #faf5ff 50%, #fdfbf7 100%);
+}
+
+/* --- 漂浮粒子 --- */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  user-select: none;
+}
+
+@keyframes float-up {
+  0%   { transform: translateY(0) rotate(0deg) scale(1); }
+  25%  { transform: translateY(-20px) rotate(10deg) scale(1.1); }
+  50%  { transform: translateY(-10px) rotate(-5deg) scale(1); }
+  75%  { transform: translateY(-30px) rotate(5deg) scale(0.95); }
+  100% { transform: translateY(0) rotate(0deg) scale(1); }
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: #f3e8ff;
+  color: var(--color-accent);
+  font-size: var(--text-xs);
+  margin-bottom: var(--space-6);
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: var(--space-4);
+}
+
+.hero-highlight {
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+.hero-subtitle {
+  font-size: var(--text-lg);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ============================================
+   4. Scroll Reveal
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 不为空的容器元素（网格容器）reveal 时不影响子元素 */
+.product-grid.reveal {
+  transform: none;
+}
+.product-grid.reveal.revealed {
+  transform: none;
+}
+
+/* ============================================
+   5. Featured Card
+   ============================================ */
+.featured-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 900px;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.featured-image {
+  position: relative;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #f59e0b 100%);
+  border-radius: var(--border-radius-lg) 0 0 var(--border-radius-lg);
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featured-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.placeholder-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fallback-emoji {
+  font-size: 5rem;
+  filter: grayscale(0.3);
+}
+
+.featured-body {
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.featured-title {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.featured-desc {
+  line-height: 1.7;
+}
+
+.featured-stats {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.stat-num {
+  display: block;
+  font-weight: 700;
+  font-size: var(--text-lg);
+}
+
+.stat-label {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+}
+
+/* ============================================
+   6. Product Grid
+   ============================================ */
+.product-grid {
+  gap: var(--space-6);
+}
+
+.product-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-image {
+  position: relative;
+  height: 200px;
+  background: var(--color-bg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .card-image img {
+  transform: scale(1.06);
+}
+
+.card-image .placeholder-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-image .fallback-emoji {
+  font-size: 3rem;
+}
+
+.product-title {
+  font-weight: 700;
+  font-size: var(--text-base);
+  margin-bottom: var(--space-2);
+  line-height: 1.4;
+}
+
+.product-desc {
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-price {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+.product-price strong { color: var(--color-text); }
+
+/* --- 无用度进度条 --- */
+.useless-bar-wrap {
+  margin-top: var(--space-3);
+  background: #f3f4f6;
+  border-radius: 99px;
+  height: 4px;
+  overflow: hidden;
+}
+
+.useless-bar {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 1s ease 0.3s;
+}
+
+.useless-bar.useless { background: var(--color-useless); }
+.useless-bar.low     { background: var(--color-low); }
+.useless-bar.mid     { background: var(--color-mid); }
+
+/* ============================================
+   7. Tags
+   ============================================ */
+.tag-useless {
+  background: #fef2f2;
+  color: var(--color-useless);
+}
+
+.tag-low {
+  background: #fffbeb;
+  color: #b45309;
+}
+
+.tag-mid {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.tag-wtf {
+  background: #fdf2f8;
+  color: var(--color-wtf);
+}
+
+/* ============================================
+   8. Animations
+   ============================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+.hero-badge {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ============================================
+   9. Responsive
+   ============================================ */
+@media (max-width: 768px) {
+  .ticker-bar { font-size: 0.65rem; height: 28px; }
+  .site-header { top: 0; }
+
+  .featured-card {
+    grid-template-columns: 1fr;
+  }
+  .featured-image {
+    min-height: 220px;
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+  }
+  .featured-body {
+    padding: var(--space-5);
+  }
+  .hero {
+    padding: var(--space-8) 0 var(--space-6);
+  }
+  .nav-links a {
+    font-size: 0.75rem;
+    padding: var(--space-1);
+  }
+  .card-image {
+    height: 160px;
+  }
+}

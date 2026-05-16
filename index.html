@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeirdWeek.fun — 本周 Temu 最奇葩商品精选</title>
+  <meta name="description" content="每周精选 Temu 上最没用、最抽象、最让你想问'这玩意儿谁买啊'的奇葩商品。纯属娱乐，但都是真的。">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google AdSense（上线后替换为你的广告代码） -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+</head>
+<body>
+
+  <!-- ====== 顶部跑马灯 ====== -->
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      <span>🌀 新上架：会逃跑的闹钟</span>
+      <span>·</span>
+      <span>🍌 本期评分最低：香蕉弯曲度测量仪（0% 有用）</span>
+      <span>·</span>
+      <span>📦 本周共收录 7 件神物</span>
+      <span>·</span>
+      <span>😂 "假装在工作"键盘敲击器已售 2000+</span>
+      <span>·</span>
+      <span>🪞 镇站之宝：会夸你的化妆镜</span>
+      <span>·</span>
+      <span>🧦 单只袜子：需要左脚？请另购</span>
+      <span>·</span>
+      <span>🌀 新上架：会逃跑的闹钟</span>
+      <span>·</span>
+      <span>🍌 本期评分最低：香蕉弯曲度测量仪（0% 有用）</span>
+      <span>·</span>
+      <span>📦 本周共收录 7 件神物</span>
+    </div>
+  </div>
+
+  <!-- ====== Header ====== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner flex justify-between items-center">
+        <a href="#" class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+          <span class="logo-icon">🌀</span>
+          <span class="logo-text">WeirdWeek</span>
+        </a>
+        <nav class="nav-links flex gap-4 items-center">
+          <a href="#this-week">本周精选</a>
+          <a href="#past-weeks">往期回顾</a>
+          <a href="#about">关于</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== Hero ====== -->
+  <section class="hero section">
+    <!-- 漂浮 emoji 粒子 -->
+    <div class="hero-particles" id="heroParticles"></div>
+
+    <div class="container text-center">
+      <p class="hero-badge tag reveal">Week #1 · 2026.05.16</p>
+      <h1 class="hero-title reveal">
+        这周 Temu 又上了什么<br><span class="hero-highlight">离谱东西</span>
+      </h1>
+      <p class="hero-subtitle text-secondary reveal">
+        每周从 Temu 的海量商品中，挑出那些让你怀疑人生的。<br>
+        不是测评，是奇观。
+      </p>
+    </div>
+  </section>
+
+  <!-- ====== Ad Slot 1 (Top) ====== -->
+  <div class="container reveal">
+    <div class="ad-slot">
+      <p style="color:var(--ad-label-color);font-size:0.75rem;">— 广告 —</p>
+    </div>
+  </div>
+
+  <!-- ====== Featured Product ====== -->
+  <section id="this-week" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>🔮 本周镇站之宝</h2>
+        <p>编辑部一致认为：这玩意儿的存在本身就是一种行为艺术</p>
+      </div>
+
+      <article class="featured-card card reveal">
+        <div class="featured-image">
+          <img
+            src="assets/products/01-featured/product.jpg"
+            alt="会夸人的化妆镜"
+            class="featured-img"
+            onerror="this.parentElement.classList.add('no-image'); this.style.display='none'"
+          >
+          <div class="placeholder-fallback">
+            <span class="fallback-emoji">🪞</span>
+          </div>
+        </div>
+        <div class="featured-body">
+          <div class="featured-meta flex gap-2 items-center">
+            <span class="tag tag-useless">0% 有用</span>
+            <span class="tag tag-wtf">纯抽象</span>
+            <span class="text-sm text-tertiary">来自 Temu</span>
+          </div>
+          <h3 class="featured-title">"照镜子时自动播放励志语录"的化妆镜</h3>
+          <p class="featured-desc text-secondary">
+            每天早上你照镜子，镜子就开始播放"You are beautiful""今天也要加油哦"。
+            电池续航 4 小时。也就是说，你最多只能被鼓励 4 个小时。
+            评论区有人问：能不能关掉。客服说：关掉就没意义了。
+          </p>
+          <div class="featured-stats flex gap-6">
+            <div class="stat">
+              <span class="stat-num counter" data-target="3.99" data-prefix="$">$3.99</span>
+              <span class="stat-label">售价</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">4.2★</span>
+              <span class="stat-label">竟然有评分</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num counter" data-target="823" data-suffix="+">823+</span>
+              <span class="stat-label">销量（为什么）</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ====== Weekly Picks Grid ====== -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>📦 本周其他选手</h2>
+        <p>每一个都让你想问：产品经理在吗？出来聊聊</p>
+      </div>
+
+      <div class="product-grid grid grid-3">
+
+        <!-- Product 1 · 单只袜子 -->
+        <article class="product-card card reveal">
+          <div class="card-image">
+            <img
+              src="assets/products/02-socks/product.jpg"
+              alt="单只独立包装的袜子"
+              onerror="this.parentElement.classList.add('no-image'); this.style.display='none'"
+            >
+            <div class="placeholder-fallback">
+              <span class="fallback-emoji">🧦</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="flex gap-2 mb-2">
+              <span class="tag tag-useless">0% 有用</span>
+            </div>
+            <h3 class="product-title">单只独立包装的袜子</h3>
+            <p class="product-desc text-secondary">
+              一盒 12 只，全是右脚。左脚需要另外买。商品详情页写："为什么要两只一样？"
+            </p>
+            <div class="product-price text-sm mt-2">
+              <strong>$5.99</strong> <span class="text-tertiary">/ 盒（仅右脚）</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 2 · 盆栽遮阳伞 -->
+        <article class="product-card card reveal">
+          <div class="card-image">
+            <img
+              src="assets/products/03-umbrella/product.jpg"
+              alt="给盆栽打伞的迷你遮阳伞"
+              onerror="this.parentElement.classList.add('no-image'); this.style.display='none'"
+            >
+            <div class="placeholder-fallback">
+              <span class="fallback-emoji">🌧️</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="flex gap-2 mb-2">
+              <span class="tag tag-low">3% 有用</span>
+            </div>
+            <h3 class="product-title">给盆栽打伞的迷你遮阳伞</h3>
+            <p class="product-desc text-secondary">
+              直径 8cm。只能遮住一株多肉。详情页写了"让你的绿植也享受度假感"。绿植：不至于。
+            </p>
+            <div class="product-price text-sm mt-2">
+              <strong>$2.49</strong>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 3 · 键盘敲击器 -->
+        <article class="product-card card reveal">
+          <div class="card-image">
+            <img
+              src="assets/products/04-keyboard/product.jpg"
+              alt="假装在工作的键盘敲击器"
+              onerror="this.parentElement.classList.add('no-image'); this.style.display='none'"
+            >
+            <div class="placeholder-fallback">
+              <span class="fallback-emoji">💤</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="flex gap-2 mb-2">
+              <span class="tag tag-useless">0% 有用</span>
+              <span class="tag tag-wtf">离谱</span>
+            </div>
+            <h3 class="product-title">"假装在工作"的键盘敲击器</h3>
+            <p class="product-desc text-secondary">
+              一个 USB 小装置，插入电脑后自动随机敲击键盘。让老板以为你一直在打字。
+            </p>
+            <div class="product-price text-sm mt-2">
+              <strong>$7.99</strong> <span class="text-tertiary">· 已售 2000+</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 4 · 香蕉测量仪 -->
+        <article class="product-card card reveal">
+          <div class="card-image">
+            <img
+              src="assets/products/05-banana/product.jpg"
+              alt="香蕉弯曲度测量仪"
+              onerror="this.parentElement.classList.add('no-image'); this.style.display='none'"
+            >
+            <div class="placeholder-fallback">
+              <span class="fallback-emoji">🍌</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="flex gap-2 mb-2">
+              <span class="tag tag-low">5% 有用</span>
+            </div>
+            <h3 class="product-title">香蕉专用弯曲度测量仪</h3>
+            <p class="product-desc text-secondary">
+              一个塑料尺，刻度是"太直""刚好""太弯"。商品介绍：帮你挑出完美的香蕉。
+            </p>
+            <div class="product-price text-sm mt-2">
+              <strong>$1.99</strong>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 5 · 清洁鱼 -->
+        <article class="product-card card reveal">
+          <div class="card-image">
+            <img
+              src="assets/products/06-fish/product.jpg"
+              alt="手机屏幕清洁鱼"
+              onerror="this.parentElement.classList.add('no-image'); this.style.display='none'"
+            >
+            <div class="placeholder-fallback">
+              <span class="fallback-emoji">📱</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="flex gap-2 mb-2">
+              <span class="tag tag-useless">0% 有用</span>
+            </div>
+            <h3 class="product-title">手机屏幕"清洁鱼"</h3>
+            <p class="product-desc text-secondary">
+              一个鱼形的小塑料片，贴在手机背面。宣传说"游过屏幕就能清洁"。其实就是一个橡胶刮片。
+            </p>
+            <div class="product-price text-sm mt-2">
+              <strong>$3.49</strong>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 6 · 逃跑闹钟 -->
+        <article class="product-card card reveal">
+          <div class="card-image">
+            <img
+              src="assets/products/07-clock/product.jpg"
+              alt="带轮子的逃跑闹钟"
+              onerror="this.parentElement.classList.add('no-image'); this.style.display='none'"
+            >
+            <div class="placeholder-fallback">
+              <span class="fallback-emoji">⏰</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="flex gap-2 mb-2">
+              <span class="tag tag-mid">30% 有用</span>
+            </div>
+            <h3 class="product-title">逃跑闹钟（带轮子）</h3>
+            <p class="product-desc text-secondary">
+              闹钟响了之后会自动滚下床头柜逃跑。你必须起床抓住它才能关掉。有用，但费膝盖。
+            </p>
+            <div class="product-price text-sm mt-2">
+              <strong>$12.99</strong> <span class="text-tertiary">· 销量 5000+</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Ad Slot 2 (Middle) ====== -->
+  <div class="container reveal">
+    <div class="ad-slot">
+      <p style="color:var(--ad-label-color);font-size:0.75rem;">— 广告 —</p>
+    </div>
+  </div>
+
+  <!-- ====== Past Weeks ====== -->
+  <section id="past-weeks" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>📼 往期回顾</h2>
+        <p>历史奇葩，不会消失。每一期都值得反复品鉴。</p>
+      </div>
+      <div class="past-weeks-placeholder text-center p-6 reveal" style="border:2px dashed var(--color-border);border-radius:var(--border-radius-lg);color:var(--color-text-tertiary);">
+        <p style="font-size:3rem;margin-bottom:var(--space-4);">📅</p>
+        <p>更多奇葩即将到来……</p>
+        <p class="text-sm mt-2">每周更新，不会鸽。（大概率）</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== About ====== -->
+  <section id="about" class="section" style="background:var(--color-surface);">
+    <div class="container" style="max-width:700px;">
+      <div class="section-header reveal">
+        <h2>👋 关于 WeirdWeek</h2>
+      </div>
+      <div class="about-content text-secondary reveal" style="line-height:1.8;">
+        <p class="mb-4">
+          这是一个<strong>纯娱乐</strong>网站。我们不卖东西，我们只是 Temu 奇葩商品的搬运工。
+        </p>
+        <p class="mb-4">
+          每周，我们会从 Temu 上发掘那些<strong>让你无法移开视线</strong>的商品——不是因为它们好用，而是因为它们的存在实在让人费解。
+        </p>
+        <p class="mb-4">
+          我们不对任何产品做质量评价。我们只想说：<em>这个世界比我们想象的要有趣得多</em>。
+        </p>
+        <p class="text-sm text-tertiary mt-6">
+          📧 投稿你发现的 Temu 神物：weirdweek@fun
+          <br>所有商品信息来源于 Temu 公开页面。我们不卖这些。（真的不卖。）
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Ad Slot 3 (Bottom) ====== -->
+  <div class="container reveal">
+    <div class="ad-slot">
+      <p style="color:var(--ad-label-color);font-size:0.75rem;">— 广告 —</p>
+    </div>
+  </div>
+
+  <!-- ====== Footer ====== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>🌀 WeirdWeek.fun — 每周 Temu 奇葩精选</p>
+      <p class="mt-2">我们不卖东西。我们只是奇观的搬运工。</p>
+      <p class="mt-4 text-tertiary" style="font-size:0.75rem;">
+        This site is for entertainment purposes only. All product information sourced from public Temu listings.<br>
+        We are not affiliated with Temu. We don't sell these. (Seriously.)
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
