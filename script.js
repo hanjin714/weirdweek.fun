@@ -31,7 +31,7 @@ revealEls.forEach(el => observer.observe(el));
 // --- 2. Hero Floating Emoji Particles ---
 const particlesContainer = document.getElementById('heroParticles');
 if (particlesContainer) {
-  const emojis = ['🌀', '📦', '😂', '🪞', '🧦', '🍌', '⏰', '💤', '🌧️', '🤔', '✨', '💀'];
+  const emojis = ['Odd', 'Find', 'Note', 'Why?', 'Prop', 'Gift', 'Tiny', 'Big', 'Huh', 'Fun'];
 
   for (let i = 0; i < 20; i++) {
     const particle = document.createElement('span');
@@ -147,18 +147,29 @@ function openModal(card) {
   });
 
   modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
   modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
 }
 
-// Attach click to all product cards (grid + featured)
-const allCards = document.querySelectorAll('.product-card, .featured-card');
+// Attach click to image-backed product cards (grid + featured)
+const allCards = document.querySelectorAll('.product-card:not(.text-card), .featured-card');
 allCards.forEach(card => {
   card.addEventListener('click', () => openModal(card));
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('role', 'button');
+  card.setAttribute('aria-label', 'Open full editorial note');
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openModal(card);
+    }
+  });
   card.style.cursor = 'pointer';
 });
 
