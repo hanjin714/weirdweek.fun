@@ -1,172 +1,34 @@
----
-site: weirdweek.fun
-purpose: 内容需求清单 — 转型为多页周刊博客所需的全部素材
-created: 2026-05-22
----
+# WeirdWeek.fun Editorial Brief
 
-# weirdweek.fun 内容需求清单
+WeirdWeek is an independent weekly magazine about strange useful things.
 
-## 转型说明
+## Current editorial direction
 
-当前：单页 7 个产品卡片 + 空占位
-目标：博客式多页结构，每期独立页面，每期 8 个产品，共 4 期存档
+- Forgotten infrastructure
+- Odd design decisions
+- Old technology and mechanical knowledge
+- Weather experiments and public systems
+- Small everyday objects that reveal hidden constraints
 
-## 你需要做的事
+## What the site no longer publishes
 
-1. 在 Temu 上找到足够奇葩/搞笑的产品
-2. 截图保存到 `assets/products/` 下对应的期数文件夹（如 `week-2/`）
-3. 填写下面每期的产品信息表格
-4. 每期还需要一张封面图（可选，但你之前的截图风格就很好）
+- Shopping feeds
+- Commercial roundup pages
+- Merchant listing summaries
+- Affiliate-style pages
+- Placeholder issue archives
+- Automatically generated topic dumps
 
----
+## Article standard
 
-## 已经有的素材（Week 1 ✅）
+Each article should answer:
 
-当前首页的 7 个产品直接作为 Week 1，你不需要准备额外内容：
+1. What is the strange thing?
+2. What problem or constraint made it reasonable?
+3. What broader system does it reveal?
+4. What can a reader learn after the novelty fades?
+5. What source notes or reading context support the claims?
 
-| # | 产品名 | 价格 | 图片 |
-|---|--------|------|------|
-| 1 | IT'S NOTHING Card | $0.43 | ✅ 已有 |
-| 2 | Giant Plastic Chain Leash | $4.99 | ✅ 已有 |
-| 3 | Caveman Feet Sandals | $6.99 | ✅ 已有 |
-| 4 | Cleaver Phone Case | $5.49 | ✅ 已有 |
-| 5 | Beer Belly Fanny Pack | $8.99 | ✅ 已有 |
-| 6 | Giant Lace Panties | $7.49 | ✅ 已有 |
-| 7 | Fly Earrings | $2.99 | ✅ 已有 |
+## AdSense posture
 
-**还差 1 个**：Week 1 需要凑满 8 个产品，请再找一个 Temu 奇葩品（任意类型）。
-
----
-
-## 需要你准备的：Week 2
-
-**新找 8 个 Temu 奇葩产品。** 建议和 Week 1 不重复，可以拓展品类方向：
-
-建议方向（仅供参考，你觉得哪个方向有意思就挖哪个）：
-- 厨房/家居类奇葩品（如：只有一根手指能戴的防烫手套、会唱歌的切菜板）
-- 电子配件奇葩设计（如：充电时会长出翅膀的充电器壳）
-- 穿搭类神器（如：穿上去能唱生日歌的袜子）
-- 办公桌小物件（如：按一下播放大笑声的解压按钮）
-- 宠物用品（和你的宠物行业背景挂钩，如：狗戴上去像人类的假发）
-- 或者任何你在 Temu 上刷到觉得"这什么鬼"的东西
-
-### Week 2 产品信息模板
-
-请按以下格式填写，每找一个产品就填一行：
-
-```
-| # | 产品名（英文） | 价格 | Temu 链接 | 一句话描述 | 你选它的原因 |
-| 1 | 例：XX产品 | $X.XX | 链接 | 一句话 | 为什么这个东西值得被展示 |
-| 2 | ... | ... | ... | ... | ... |
-```
-
-**图片**：每个产品截 1-2 张图，放到 `assets/products/week-2/` 文件夹下，命名 `01-xxx.png`, `02-xxx.png` ...
-
----
-
-## 需要你准备的：Week 3
-
-同上，再找 8 个 Temu 奇葩产品。
-
-### Week 3 产品信息模板
-
-```
-| # | 产品名（英文） | 价格 | Temu 链接 | 一句话描述 | 你选它的原因 |
-| 1 | 例：XX产品 | $X.XX | 链接 | 一句话 | 为什么这个东西值得被展示 |
-| 2 | ... | ... | ... | ... | ... |
-```
-
-**图片**：`assets/products/week-3/`
-
----
-
-## 需要你准备的：Week 4
-
-同上，再找 8 个 Temu 奇葩产品。
-
-### Week 4 产品信息模板
-
-```
-| # | 产品名（英文） | 价格 | Temu 链接 | 一句话描述 | 你选它的原因 |
-| 1 | 例：XX产品 | $X.XX | 链接 | 一句话 | 为什么这个东西值得被展示 |
-| 2 | ... | ... | ... | ... | ... |
-```
-
-**图片**：`assets/products/week-4/`
-
----
-
-## 每期我还需要什么
-
-除了 8 个产品外，每期我需要一两句话：
-
-| 期数 | 需要你提供的 |
-|------|-------------|
-| Week 1 | **本期主题**（如："Temu 的边界到底在哪"）+ **Editor's Note 核心想法**（如：这周刷到 X 产品的时候我愣了三秒） |
-| Week 2 | 同上 |
-| Week 3 | 同上 |
-| Week 4 | 同上 |
-
-## 不需要你做的事
-
-以下内容我来写，你不需要管：
-- 每个产品 200+ 词的英文策展评论（Curator's Take）
-- 每期的 Editor's Note 完整英文版
-- 页面 HTML/CSS 代码
-- 首页重新设计
-- 必加页面（About、Privacy Policy、Terms、Contact）
-
----
-
-## 总结：你总共需要提供的
-
-| 项目 | 数量 |
-|------|------|
-| Week 1 补充的产品 | 1 个（凑满 8） |
-| Week 2 新产品 | 8 个 |
-| Week 3 新产品 | 8 个 |
-| Week 4 新产品 | 8 个 |
-| 产品图片 | 25 张（每个产品 1 张） |
-| 每期的主题 + Editor's Note 想法 | 各 1-2 句中文即可 |
-| **合计** | **25 个新产品** |
-
----
-
-## 图片命名规范
-
-```
-assets/products/
-├── week-1/
-│   ├── 01-xxx.png       ← 短横线连接，全小写英文
-│   ├── 02-xxx.png
-│   └── ...
-├── week-2/
-│   ├── 01-xxx.png
-│   └── ...
-├── week-3/
-└── week-4/
-```
-
-- 文件名：`编号-产品名简写.png`，如 `01-nothing-card.png`
-- 不要中文文件名
-- 建议 600×600 以上，< 500KB
-
----
-
-## 产品筛选原则（帮你快速刷 Temu）
-
-1. **有视觉冲击力** — 看第一眼就想截图发给朋友
-2. **有明确的"荒诞感"** — 不是"质量差"而是"有谁会需要这个"
-3. **品类尽量分散** — 别 8 个都是手机壳
-4. **$0.1 ~ $20 区间** — 越便宜越容易冲动分享，太贵的不好笑
-5. **不是山寨/盗版** — 而是原创的奇葩设计。山寨货不好写评论，而且有版权风险
-
----
-
-## 完成后
-
-填完内容后告诉我，我会：
-1. 根据你填的产品信息写完整的英文策展评论
-2. 搭建多页博客结构 + 首页
-3. 生成所有必加页面
-4. 部署上线后重新提交 AdSense 审核
+The site keeps Google AdSense code where appropriate, but editorial pages are written as reader-first content. The site does not create empty pages for ad inventory.
