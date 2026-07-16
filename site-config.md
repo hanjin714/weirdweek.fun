@@ -9,3 +9,4 @@
 | Editorial stance | No paid placement, no thin aggregation, no placeholder archive pages |
 | Contact | hello@weirdweek.fun |
 | Latest update | 2026-06-28: Added Issue 05 and the runway numbering explainer |
+| Quality revision | 2026-07-16: Expanded all stories, added linked primary sources and bylines, removed duplicate issue pages from indexing, and limited ad code to content pages |
