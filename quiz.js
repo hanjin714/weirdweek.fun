@@ -10,7 +10,15 @@ const questions = [
   {q:"A friend needs help. What do you offer?",a:[["A push to take the first step",0],["A practical plan",1],["A fresh perspective",2],["A listening ear",3]]},
   {q:"Your ideal project has plenty of…",a:[["Freedom",0],["Puzzles",1],["Possibilities",2],["Collaboration",3]]},
   {q:"What would you most like to leave behind?",a:[["A path for others to follow",0],["An idea that helps people",1],["Something beautiful",2],["A community that cares",3]]},
-  {q:"Choose the phrase that feels closest.",a:[["Let's find out",0],["Let's understand why",1],["What if we imagined it differently?",2],["We're better together",3]]}
+  {q:"Choose the phrase that feels closest.",a:[["Let's find out",0],["Let's understand why",1],["What if we imagined it differently?",2],["We're better together",3]]},
+  {q:"You discover a locked room. What draws you in?",a:[["The chance to open it",0],["The mystery of its mechanism",1],["The stories it might contain",2],["Finding who it belongs to",3]]},
+  {q:"Which kind of day feels most rewarding?",a:[["One filled with new places",0],["One where I figured something out",1],["One where I made something",2],["One spent helping a friend",3]]},
+  {q:"A new idea appears. What happens next?",a:[["I try it immediately",0],["I test whether it makes sense",1],["I imagine where it could lead",2],["I talk it through with someone",3]]},
+  {q:"In a team, what do you naturally bring?",a:[["Momentum",0],["Clarity",1],["Original ideas",2],["Encouragement",3]]},
+  {q:"Choose a place to spend an evening.",a:[["A rooftop under the stars",0],["A library full of puzzles",1],["A studio full of colors",2],["A warm kitchen with friends",3]]},
+  {q:"Which challenge would you choose?",a:[["Explore an unfamiliar trail",0],["Solve a complicated riddle",1],["Invent a new story",2],["Help strangers become a team",3]]},
+  {q:"When you learn something new, you prefer to…",a:[["Jump in and experiment",0],["Understand the principles",1],["Connect it to other ideas",2],["Learn alongside others",3]]},
+  {q:"What does a good future look like?",a:[["A life with room for discovery",0],["A world that makes more sense",1],["A place full of imagination",2],["A community where people belong",3]]}
 ];
 const matches=[
  {name:"Ibn Battuta",role:"The explorer",icon:"↗",description:"Curious and ready to move, you find energy in unfamiliar places and possibilities. Like the 14th-century traveler Ibn Battuta, you seem drawn to what lies beyond the familiar.",strengths:["Open to change","Comfortable taking initiative"],note:"Your adventurous instinct can make the familiar feel too small. Give yourself time to enjoy where you are.",keywords:["curious","bold","adaptable"]},
@@ -26,20 +34,27 @@ function result(){const scores=[0,0,0,0];answers.forEach((a,i)=>scores[questions
 const worldMatches = {
   greek: [["Hermes","A traveler and messenger, always ready to discover a new path."],["Athena","A figure of wisdom and strategy, drawn to thoughtful solutions."],["Apollo","A patron of the arts and inspiration, connected to creative expression."],["Hestia","A guardian of home and community, associated with gathering people together."]],
   norse: [["Thor","A protector known for action and courage in the face of challenges."],["Odin","A seeker of knowledge who travels widely in pursuit of wisdom."],["Bragi","A figure associated with poetry, storytelling and the art of words."],["Frigg","A figure associated with care, family and connection."]],
-  japanese: [["Susanoo","A storm deity whose stories are full of bold, unpredictable journeys."],["Omoikane","A deity of wisdom known for finding thoughtful solutions."],["Ame-no-Uzume","A deity of joy and performance whose creativity brings light back to the world."],["Amaterasu","A sun deity whose return restores light and connection to the world."]]
+  japanese: [["Susanoo","A storm deity whose stories are full of bold, unpredictable journeys."],["Omoikane","A deity of wisdom known for finding thoughtful solutions."],["Ame-no-Uzume","A deity of joy and performance whose creativity brings light back to the world."],["Amaterasu","A sun deity whose return restores light and connection to the world."]],
+  egyptian: [["Horus","A sky deity associated with protection and action."],["Thoth","A deity associated with writing, learning and wisdom."],["Seshat","A deity associated with writing, records and creative knowledge."],["Hathor","A deity associated with joy, music and care."]]
 };
-const creatureMatches=[["The roaming dragon","A free-spirited guardian of distant horizons."],["The curious automaton","A thoughtful mechanical being who loves a puzzle."],["The dream-weaving moth","A gentle creature that transforms ideas into colorful dreams."],["The lantern keeper","A friendly creature who guides lost travelers home."]];
+const creatureMatches={
+ global:[["The roaming dragon","A free-spirited guardian of distant horizons."],["The curious automaton","A thoughtful mechanical being who loves a puzzle."],["The dream-weaving moth","A creature that transforms ideas into colorful dreams."],["The lantern keeper","A friendly creature who guides lost travelers home."]],
+ east:[["The cloud dragon","A wandering sky spirit who follows unexplored winds."],["The paper fox","A clever puzzle-solver made of folded stories."],["The moon rabbit","A moonlit maker who turns impossible ideas into art."],["The lantern spirit","A warm companion who lights the way for others."]],
+ europe:[["The wandering griffin","A curious guardian of faraway mountain paths."],["The clockwork owl","A mechanical night-thinker who collects riddles."],["The forest sprite","An imaginative maker of small woodland wonders."],["The hearth giant","A gentle guardian who gives every traveler a welcome."]],
+ americas:[["The thunderbird voyager","A skyward explorer who follows approaching storms."],["The stargazing coyote","A curious problem-solver who asks unexpected questions."],["The painted night moth","A creator whose wings carry colorful stories."],["The fireside guardian","A watchful companion who brings a community together."]],
+ south:[["The monsoon wanderer","An adventurous creature who travels with the rains."],["The library elephant","A patient collector of puzzles and forgotten knowledge."],["The jeweled peacock","A vivid storyteller who turns ideas into spectacle."],["The garden guardian","A thoughtful companion who helps a community flourish."]]
+};
 const parallelMatches=[["The mapmaker of impossible places","You chart forgotten routes and invite others to explore."],["The keeper of questions","You run a library where every mystery unlocks another door."],["The maker of moonlit stories","You create living stories that change with each reader."],["The host of the crossroads","You build a welcoming place where travelers share their stories."]];
 const baseResult = result;
 result = function(){
   baseResult();
   const scores=[0,0,0,0]; answers.forEach((a,i)=>scores[questions[i].a[a][1]]++);
   const winner=scores.indexOf(Math.max(...scores));
-  const myth=worldMatches[$("culture").value][winner], creature=creatureMatches[winner], parallel=parallelMatches[winner];
+  const myth=worldMatches[$("culture").value][winner], creature=creatureMatches[$("region").value][winner], parallel=parallelMatches[winner];
   const section=$("result").querySelector(".coming");
   section.className="worlds";
   const title=document.createElement("div");
-  title.innerHTML='<span class="eyebrow">YOUR OTHER WORLDS</span><h2>Three more sides to your story<span>.</span></h2><p>These creative, rule-based matches use the same answers. The creature and parallel world are original fictional archetypes.</p><label class="culture">Explore another mythology <select id="result-culture"><option value="greek">Greek mythology</option><option value="norse">Norse mythology</option><option value="japanese">Japanese mythology</option></select></label>';
+  title.innerHTML='<span class="eyebrow">YOUR OTHER WORLDS</span><h2>Three more sides to your story<span>.</span></h2><p>These creative, rule-based matches use the same answers. The creature and parallel world are original fictional archetypes, inspired by your selected story region.</p><div class="preferences"><label class="culture">Explore another mythology <select id="result-culture"><option value="greek">Greek mythology</option><option value="norse">Norse mythology</option><option value="japanese">Japanese mythology</option><option value="egyptian">Egyptian mythology</option></select></label><label class="culture">Explore another story region <select id="result-region"><option value="global">A little of everything</option><option value="east">East Asian stories</option><option value="europe">European stories</option><option value="americas">Stories from the Americas</option><option value="south">South Asian stories</option></select></label></div>';
   section.replaceChildren(title);
   [[ "MYTHOLOGY", myth ],[ "SCREEN CREATURE", creature ],[ "PARALLEL WORLD", parallel ]].forEach(([label, match])=>{
     const card=document.createElement("article"); card.className="world-card";
@@ -50,6 +65,8 @@ result = function(){
   });
   const selector=$("result-culture"); selector.value=$("culture").value;
   selector.addEventListener("change",()=>{ $("culture").value=selector.value; const match=worldMatches[selector.value][winner]; const card=section.querySelector(".world-card"); card.querySelector("h3").textContent=match[0]; card.querySelector("p").textContent=match[1]; });
+  const regionSelector=$("result-region"); regionSelector.value=$("region").value;
+  regionSelector.addEventListener("change",()=>{ $("region").value=regionSelector.value; const match=creatureMatches[regionSelector.value][winner]; const card=section.querySelectorAll(".world-card")[1]; card.querySelector("h3").textContent=match[0]; card.querySelector("p").textContent=match[1]; });
 };
 $("start").addEventListener("click",()=>{index=0;answers=Array(questions.length).fill(null);render();show("quiz")});
 $("quiz-nav").addEventListener("click",e=>{e.preventDefault();if($("intro").hidden){show("quiz");render();}else{$("start").click();}});
